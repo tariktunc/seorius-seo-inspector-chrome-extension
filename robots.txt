@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tariktunc.github.io/seorius-seo-inspector-chrome-extension/sitemap.xml
