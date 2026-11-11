@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="tr" data-lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Seorius — On-Page SEO Inspector · Versions</title>
+<meta name="description" content="Açık sekmedeki sayfanın sayfa içi SEO analizini tarayıcınızda yapan, açık kaynaklı Chrome eklentisi. Open-source, local-only on-page SEO inspector.">
+<meta property="og:title" content="Seorius — On-Page SEO Inspector">
+<meta property="og:description" content="Açık sekmedeki sayfanın sayfa içi SEO analizini tarayıcınızda yapan, açık kaynaklı Chrome eklentisi. Open-source, local-only on-page SEO inspector.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tariktunc.github.io/seorius-seo-inspector-chrome-extension/changelog.html">
+<link rel="canonical" href="https://tariktunc.github.io/seorius-seo-inspector-chrome-extension/changelog.html">
+<link rel="alternate" hreflang="tr" href="https://tariktunc.github.io/seorius-seo-inspector-chrome-extension/changelog.html">
+<link rel="alternate" hreflang="en" href="https://tariktunc.github.io/seorius-seo-inspector-chrome-extension/changelog.html">
+<link rel="icon" href="assets/icon128.png">
+<link rel="stylesheet" href="style.css">
+<script>
+(function(){var d=document.documentElement,k='ext-lang',s=null;try{s=localStorage.getItem(k)}catch(e){}
+var l=s||((navigator.language||'tr').toLowerCase().indexOf('tr')===0?'tr':'en');d.setAttribute('data-lang',l);d.lang=l;
+document.addEventListener('DOMContentLoaded',function(){var b=document.getElementById('lang');if(!b)return;
+b.addEventListener('click',function(){var n=d.getAttribute('data-lang')==='tr'?'en':'tr';d.setAttribute('data-lang',n);d.lang=n;try{localStorage.setItem(k,n)}catch(e){}});});})();
+</script>
+</head>
+<body>
+<header class="nav"><div class="wrap">
+<a class="brand" href="index.html"><img src="assets/icon128.png" alt="">Seorius</a>
+<nav>
+<a href="index.html"><span lang="tr">Tanıtım</span><span lang="en">Overview</span></a>
+<a href="docs.html"><span lang="tr">Dökümanlar</span><span lang="en">Docs</span></a>
+<a href="changelog.html" class="on"><span lang="tr">Sürümler</span><span lang="en">Versions</span></a>
+<a class="hide-s" href="https://github.com/tariktunc/seorius-seo-inspector-chrome-extension">GitHub</a>
+<button class="lang" id="lang" type="button" aria-label="Language">TR / EN</button>
+</nav></div></header>
+
+<div class="wrap" style="padding-top:48px;padding-bottom:64px">
+<h2><span lang="tr">Sürümler</span><span lang="en">Versions</span></h2>
+<p class="sub"><span lang="tr">Güncel sürüm ve geliştirme geçmişi. Tarihler repodaki commit geçmişinden alınmıştır.</span><span lang="en">The current version and development history. Dates come from the repository commit history.</span></p>
+<div class="cur">
+<div class="card"><span class="l"><span lang="tr">Güncel sürüm</span><span lang="en">Current version</span></span><b>1.0.0</b></div>
+<div class="card"><span class="l"><span lang="tr">Durum</span><span lang="en">Status</span></span><b><span lang="tr">Geliştirme</span><span lang="en">In development</span></b></div>
+<div class="card"><span class="l"><span lang="tr">Birim testi</span><span lang="en">Unit tests</span></span><b>50</b></div>
+<div class="card"><span class="l"><span lang="tr">Lisans</span><span lang="en">Licence</span></span><b>MIT</b></div>
+</div>
+<div class="btns" style="justify-content:flex-start;margin-bottom:36px"><a class="btn primary" href="https://github.com/tariktunc/seorius-seo-inspector-chrome-extension/archive/refs/heads/main.zip"><span lang="tr">Son sürümü ZIP indir</span><span lang="en">Download latest ZIP</span></a><a class="btn primary" style="background:transparent;color:var(--link);border-color:var(--line)" href="https://github.com/tariktunc/seorius-seo-inspector-chrome-extension/commits/main"><span lang="tr">Tüm commit geçmişi</span><span lang="en">Full commit history</span></a></div>
+<div class="tl"><div class="it"><div class="d">2026-10-29</div><h3><span lang="tr">Türkçe bulgular, yönlendirme zinciri, CORS'suz kontrol</span><span lang="en">Turkish findings, redirect chain, cross-site checks</span></h3><p><span lang="tr">Analiz motoru bulguları Türkçe; adım adım yönlendirme zinciri; başka sitelerde bağlantı / görsel / site haritası kontrolü CORS başlığına bağlı kalmadan.</span><span lang="en">Engine findings in Turkish; a hop-by-hop redirect chain; link / image / sitemap checks on other sites without depending on CORS headers.</span></p></div><div class="it"><div class="d">2026-10-29</div><h3><span lang="tr">"Operated by Blakfy Studio" bağlantısı</span><span lang="en">"Operated by Blakfy Studio" link</span></h3><p><span lang="tr">Ayarlar sayfasında ortalanmış kart düzeni ve Blakfy Studio bağlantısı.</span><span lang="en">A centred card layout on the settings page and a Blakfy Studio link.</span></p></div><div class="it"><div class="d">2026-10-28</div><h3><span lang="tr">Google SERP katmanı ve yeni sekmeler</span><span lang="en">Google SERP overlay and new tabs</span></h3><p><span lang="tr">Organik sıra numaraları, etiketli reklamlar ve SERP özellikleri, CSV, ülke / dil. Popup: Özet, Başlıklar, Görseller, Bağlantılar, Sosyal, Araçlar.</span><span lang="en">Organic positions, labelled ads and SERP features, CSV, locale. Popup: Overview, Headings, Images, Links, Social, Tools.</span></p></div><div class="it"><div class="d">2026-10-28</div><h3><span lang="tr">Daha büyük yazı</span><span lang="en">Larger text</span></h3><p><span lang="tr">Varsayılan 16 px, en az 14 px, yazı boyutu ayarı ve 600 px popup.</span><span lang="en">16 px by default, 14 px floor, a text-size setting and a 600 px popup.</span></p></div><div class="it"><div class="d">2026-10-28</div><h3><span lang="tr">Logo ve renk paleti</span><span lang="en">Logo and palette</span></h3><p><span lang="tr">S + Sirius yıldızı logosu; lacivert + nane paleti, açık ve koyu temada WCAG AA kontrast.</span><span lang="en">An S + Sirius star logo; navy + mint palette with WCAG AA contrast in light and dark.</span></p></div><div class="it"><div class="d">2026-10-28</div><h3><span lang="tr">Seorius v1</span><span lang="en">Seorius v1</span><span class="tag">1.0.0</span></h3><p><span lang="tr">Popup, rapor, ayarlar, sayfa üstü işaretleme, Türkçe / İngilizce.</span><span lang="en">Popup, report, options, on-page overlays, Turkish / English.</span></p></div><div class="it"><div class="d">2026-10-28</div><h3><span lang="tr">İlk commit</span><span lang="en">Initial commit</span></h3><p><span lang="tr">README, MIT lisansı, birleşik ürün modeli ve özellik farkı dökümanı.</span><span lang="en">README, MIT licence, unified product model and feature diff.</span></p></div></div>
+<h2 style="margin-top:48px"><span lang="tr">Nasıl güncellenir</span><span lang="en">How to update</span></h2>
+<ol class="steps">
+<li><span lang="tr">Klonladıysanız <code>git pull</code> ve <code>npm run build</code> çalıştırın; ZIP indirdiyseniz yenisini indirip yeniden derleyin.</span><span lang="en">If you cloned the repo, run <code>git pull</code> and <code>npm run build</code>; if you used the ZIP, download the new one and rebuild.</span></li>
+<li><span lang="tr"><code>chrome://extensions</code> sayfasında Seorius kartındaki yenile simgesine basın.</span><span lang="en">On <code>chrome://extensions</code>, press the reload icon on the Seorius card.</span></li>
+</ol>
+</div>
+<footer><div class="wrap">
+<span>© 2026 <a href="https://blakfy.com">Blakfy Studio</a> · MIT</span>
+<span><a href="https://github.com/tariktunc/seorius-seo-inspector-chrome-extension"><span lang="tr">Kaynak kod</span><span lang="en">Source code</span></a> · <a href="https://github.com/tariktunc/seorius-seo-inspector-chrome-extension/issues"><span lang="tr">Sorun bildir</span><span lang="en">Report an issue</span></a></span>
+</div></footer>
+</body></html>
