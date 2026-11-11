@@ -13,6 +13,8 @@
 ![Gizlilik](https://img.shields.io/badge/veri-yaln%C4%B1zca%20yerel-informational)
 ![Durum](https://img.shields.io/badge/durum-geli%C5%9Ftirme%20a%C5%9Famas%C4%B1nda-yellow)
 
+**[Tanıtım sayfası](https://tariktunc.github.io/seorius-seo-inspector-chrome-extension/)** · **[Dökümanlar](https://tariktunc.github.io/seorius-seo-inspector-chrome-extension/docs.html)** · [GitHub](https://github.com/tariktunc/seorius-seo-inspector-chrome-extension)
+
 [Neler yapar](#neler-yapar) · [Kurulum](#kurulum-paketlenmemiş) · [İlkeler](#ilkeler) · [İzinler](#izinler) · [Geliştirme](#geliştirme) · [English](#english)
 
 </div>
@@ -164,5 +166,7 @@ Gizlilik politikası blakfy.com üzerinde yayımlanacak: <https://blakfy.com/>
 - **Languages:** Turkish and English.
 
 **Install (unpacked, status: in development):** `npm install && npm run build`, then load the `dist/` folder from `chrome://extensions` with *Developer mode* on.
+
+Website and docs: <https://tariktunc.github.io/seorius-seo-inspector-chrome-extension/>
 
 Made by [Blakfy Studio](https://blakfy.com). Licensed under MIT.
