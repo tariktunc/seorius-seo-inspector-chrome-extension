@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="tr" data-lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Seorius — On-Page SEO Inspector · Docs</title>
+<meta name="description" content="Açık sekmedeki sayfanın sayfa içi SEO analizini tarayıcınızda yapan, açık kaynaklı Chrome eklentisi. Open-source, local-only on-page SEO inspector.">
+<meta property="og:title" content="Seorius — On-Page SEO Inspector">
+<meta property="og:description" content="Açık sekmedeki sayfanın sayfa içi SEO analizini tarayıcınızda yapan, açık kaynaklı Chrome eklentisi. Open-source, local-only on-page SEO inspector.">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/icon128.png">
+<link rel="stylesheet" href="style.css">
+<script>
+(function(){var d=document.documentElement,k='ext-lang',s=null;try{s=localStorage.getItem(k)}catch(e){}
+var l=s||((navigator.language||'tr').toLowerCase().indexOf('tr')===0?'tr':'en');d.setAttribute('data-lang',l);d.lang=l;
+document.addEventListener('DOMContentLoaded',function(){var b=document.getElementById('lang');if(!b)return;
+b.addEventListener('click',function(){var n=d.getAttribute('data-lang')==='tr'?'en':'tr';d.setAttribute('data-lang',n);d.lang=n;try{localStorage.setItem(k,n)}catch(e){}});});})();
+</script>
+</head>
+<body>
+<header class="nav"><div class="wrap">
+<a class="brand" href="index.html"><img src="assets/icon128.png" alt="">Seorius</a>
+<nav>
+<a href="index.html"><span lang="tr">Tanıtım</span><span lang="en">Overview</span></a>
+<a href="docs.html" class="on"><span lang="tr">Dökümanlar</span><span lang="en">Docs</span></a>
+<a class="hide-s" href="https://github.com/tariktunc/seorius-seo-inspector-chrome-extension">GitHub</a>
+<button class="lang" id="lang" type="button" aria-label="Language">TR / EN</button>
+</nav></div></header>
+
+<div class="wrap docs">
+<aside class="toc">
+<a href="#kurulum"><span lang="tr">Kurulum</span><span lang="en">Install</span></a><a href="#popup"><span lang="tr">Pencere</span><span lang="en">Popup</span></a><a href="#serp"><span lang="tr">SERP katmanı</span><span lang="en">SERP overlay</span></a>
+<a href="#rapor"><span lang="tr">Tam rapor</span><span lang="en">Full report</span></a><a href="#isaret"><span lang="tr">İşaretleme</span><span lang="en">Highlighting</span></a><a href="#ayarlar"><span lang="tr">Ayarlar</span><span lang="en">Settings</span></a>
+<a href="#izinler"><span lang="tr">İzinler</span><span lang="en">Permissions</span></a><a href="#gizlilik"><span lang="tr">Gizlilik</span><span lang="en">Privacy</span></a><a href="#sss"><span lang="tr">Sık sorulanlar</span><span lang="en">FAQ</span></a><a href="#gelistirme"><span lang="tr">Geliştirme</span><span lang="en">Development</span></a>
+</aside>
+<article class="doc">
+<h2 id="kurulum"><span lang="tr">Kurulum</span><span lang="en">Install</span></h2>
+<div class="callout"><span lang="tr">Durum: geliştirme aşamasında. Henüz Chrome Web Mağazası'nda yok.</span><span lang="en">Status: in development. Not on the Chrome Web Store yet.</span></div>
+<p><span lang="tr">Gereken: Node.js 20 veya üstü (geliştirme Node 24 ile yapıldı).</span><span lang="en">Requires Node.js 20 or newer (developed on Node 24).</span></p>
+<pre><code>git clone https://github.com/tariktunc/seorius-seo-inspector-chrome-extension.git
+cd seorius-seo-inspector-chrome-extension
+npm install
+npm run build</code></pre>
+<ol class="steps">
+<li><span lang="tr">Chrome'da <code>chrome://extensions</code> sayfasını açın.</span><span lang="en">Open <code>chrome://extensions</code> in Chrome.</span></li>
+<li><span lang="tr">Sağ üstten <strong>Geliştirici modu</strong>nu açın.</span><span lang="en">Enable <strong>Developer mode</strong> (top right).</span></li>
+<li><span lang="tr"><strong>Paketlenmemiş öğe yükle</strong>ye basın ve <code>dist/</code> klasörünü seçin.</span><span lang="en">Click <strong>Load unpacked</strong> and choose the <code>dist/</code> folder.</span></li>
+<li><span lang="tr">Bir sayfa açın ve araç çubuğundaki Seorius simgesine tıklayın.</span><span lang="en">Open any page and click the Seorius icon in the toolbar.</span></li>
+</ol>
+
+<h2 id="popup"><span lang="tr">Açılır pencere</span><span lang="en">Popup</span></h2>
+<p><span lang="tr">URL, HTTP durumu, hata / uyarı / not sayıları ve altı sekme gösterir. Her sekmenin sonunda raporun ilgili bölümünü açan "Rapordaki ayrıntılar" bağlantısı bulunur.</span><span lang="en">Shows the URL, HTTP status, error / warning / note counts and six tabs. Each tab ends with a link that opens the matching section of the full report.</span></p>
+<table><tr><th><span lang="tr">Sekme</span><span lang="en">Tab</span></th><th><span lang="tr">İçerik</span><span lang="en">Content</span></th></tr>
+<tr><td><span lang="tr">Özet</span><span lang="en">Overview</span></td><td><span lang="tr">Temel alanlar, schema türleri, dikkat gereken ilk 5 bulgu</span><span lang="en">Basic fields, schema types, top 5 findings</span></td></tr>
+<tr><td><span lang="tr">Başlıklar</span><span lang="en">Headings</span></td><td><span lang="tr">H1–H6 yapısı</span><span lang="en">H1–H6 structure</span></td></tr>
+<tr><td><span lang="tr">Görseller</span><span lang="en">Images</span></td><td><span lang="tr">Alt metni ve boyut bilgisi</span><span lang="en">Alt text and size</span></td></tr>
+<tr><td><span lang="tr">Bağlantılar</span><span lang="en">Links</span></td><td><span lang="tr">İç / dış bağlantılar, nofollow</span><span lang="en">Internal / external links, nofollow</span></td></tr>
+<tr><td><span lang="tr">Sosyal</span><span lang="en">Social</span></td><td>Open Graph, Twitter</td></tr>
+<tr><td><span lang="tr">Araçlar</span><span lang="en">Tools</span></td><td><span lang="tr">Dış araç bağlantıları + tam rapor</span><span lang="en">External tool links + full report</span></td></tr></table>
+
+<h2 id="serp"><span lang="tr">Google arama sonuçları katmanı</span><span lang="en">Google SERP overlay</span></h2>
+<p><span lang="tr">Google'da arama yaparken sonuç sayfasına bilgi ekler. Yalnızca açık olan sonuç sayfasını okur ve hiçbir ağ isteği yapmaz; Semrush, Whois veya başka bir üçüncü taraf verisi kullanılmaz.</span><span lang="en">Adds information to Google result pages. It only reads the page that is open and makes no network requests; no Semrush, Whois or other third-party data is used.</span></p>
+<ul>
+<li><span lang="tr">Organik sonuçlara <strong>sıra numarası</strong> (2. sayfa 11'den başlar, aynı adres bir kez sayılır).</span><span lang="en"><strong>Rank numbers</strong> on organic results (page 2 starts at 11; the same address is counted once).</span></li>
+<li><span lang="tr">Reklamlara ayrı renk, çerçeve ve "Reklam #n · üst/alt" etiketi. Organik sıraya karışmaz.</span><span lang="en">Ads get their own colour, frame and an "Ad #n · top/bottom" label, and do not count towards organic rank.</span></li>
+<li><span lang="tr">SERP özellik etiketleri: öne çıkan snippet, "diğer kullanıcılar şunu sordu", yerel paket, video karuseli, görsel paketi, öne çıkan haberler, site bağlantıları, AI Overview.</span><span lang="en">SERP feature tags: featured snippet, People Also Ask, local pack, video carousel, image pack, top stories, sitelinks, AI Overview.</span></li>
+<li><span lang="tr">Sağ altta açılıp kapanan panel: organik / reklam sayıları, açma-kapama düğmeleri, <strong>CSV indirme</strong>, AI Overview kaynak listesi + CSV, ülke / dil ile yeniden arama.</span><span lang="en">A collapsible panel at the bottom right: organic / ad counts, toggles, <strong>CSV export</strong>, AI Overview sources + CSV, re-search by country / language.</span></li>
+<li><span lang="tr">Ayarlardan kendi alan adınızı girerseniz o sonuçlar ayrıca çerçevelenir.</span><span lang="en">Add your own domain in settings and its results get an extra frame.</span></li>
+</ul>
+<p><span lang="tr">Katman yalnızca <code>https://www.google.&lt;ülke&gt;/search*</code> adreslerinde (43 Google alan adı) çalışır; başka hiçbir sitede çalışmaz.</span><span lang="en">The overlay runs only on <code>https://www.google.&lt;country&gt;/search*</code> (43 Google domains) and nowhere else.</span></p>
+
+<h2 id="rapor"><span lang="tr">Tam rapor</span><span lang="en">Full report</span></h2>
+<p><span lang="tr">Popup'taki "Tam raporu aç" ile ayrı bir sekmede açılır.</span><span lang="en">Opens in its own tab from the popup.</span></p>
+<ul>
+<li><span lang="tr"><strong>Denetim:</strong> Teknik / İçerik / Mobil / Sosyal.</span><span lang="en"><strong>Audit:</strong> Technical / Content / Mobile / Social.</span></li>
+<li><span lang="tr">Sayfa bilgisi, head öğeleri, başlık ağacı, görsel tablosu, bağlantı tablosu ve bağlantı kontrolü.</span><span lang="en">Page info, head elements, heading tree, image table, link table and link checker.</span></li>
+<li><span lang="tr">Anahtar kelime yoğunluğu (1–4 kelime, Türkçe büyük/küçük harf duyarlı).</span><span lang="en">Keyword density (1–4 words, Turkish-aware casing).</span></li>
+<li><span lang="tr">Open Graph / Twitter ve paylaşım kartı önizlemesi; JSON-LD / microdata / RDFa.</span><span lang="en">Open Graph / Twitter and share-card preview; JSON-LD / microdata / RDFa.</span></li>
+<li><span lang="tr">Teknik bilgiler: durum, adım adım yönlendirme zinciri, başlıklar, HSTS, karışık içerik, HTML boyutu, robots.txt kararı, site haritası.</span><span lang="en">Technical: status, step-by-step redirect chain, headers, HSTS, mixed content, HTML size, robots.txt decision, sitemap.</span></li>
+<li><span lang="tr">Ham ve işlenmiş HTML karşılaştırması, çerçeve ve izleme etiketi tespiti, 2–5 URL karşılaştırması.</span><span lang="en">Raw vs rendered HTML comparison, framework and tracking-tag detection, 2–5 URL comparison.</span></li>
+<li><span lang="tr">Dışa aktarma: JSON / CSV / yazdır-PDF.</span><span lang="en">Export: JSON / CSV / print-to-PDF.</span></li>
+</ul>
+<p><span lang="tr">Durum modeli: <strong>hata / uyarı / not / geçti / çalışmadı</strong>. "Çalışmadı" hiçbir zaman "geçti" sayılmaz. Uzunluk aralıkları öneridir, Google kuralı değildir.</span><span lang="en">Status model: <strong>error / warning / note / pass / not run</strong>. "Not run" is never counted as "pass". Length ranges are suggestions, not Google rules.</span></p>
+
+<h2 id="isaret"><span lang="tr">Sayfada işaretleme</span><span lang="en">On-page highlighting</span></h2>
+<p><span lang="tr">Başlıkları, bağlantıları (nofollow, boş metin) ve alt metni olmayan görselleri sayfanın üstünde işaretler. İstek üzerine eklenir, kapatınca kaldırılır.</span><span lang="en">Marks headings, links (nofollow, empty text) and images without alt text on the page itself. Added on request, removed when switched off.</span></p>
+
+<h2 id="ayarlar"><span lang="tr">Ayarlar</span><span lang="en">Settings</span></h2>
+<p><span lang="tr">Dil (Türkçe / İngilizce), SERP katmanı (aç/kapat, numaralar, reklam işaretleme, özellik etiketleri, alan adım), işaretleme renkleri, ek etkisiz kelimeler ve beyaz liste, gösterilen denetim grupları, tablo sütunları, ayarları içe / dışa aktarma.</span><span lang="en">Language (Turkish / English), SERP overlay (on/off, numbers, ad marking, feature tags, my domain), highlight colours, extra stop-words and allow-list, visible audit groups, table columns, settings import / export.</span></p>
+
+<h2 id="izinler"><span lang="tr">İzinler</span><span lang="en">Permissions</span></h2>
+<table><tr><th><span lang="tr">İzin</span><span lang="en">Permission</span></th><th><span lang="tr">Ne zaman</span><span lang="en">When</span></th><th><span lang="tr">Ne için</span><span lang="en">Why</span></th></tr>
+<tr><td><code>activeTab</code>, <code>scripting</code></td><td><span lang="tr">Simgeye tıklayınca</span><span lang="en">On icon click</span></td><td><span lang="tr">Açık sekmedeki sayfayı analiz etmek</span><span lang="en">Analyse the page in the current tab</span></td></tr>
+<tr><td><code>storage</code></td><td><span lang="tr">Her zaman</span><span lang="en">Always</span></td><td><span lang="tr">Ayarlarınızı saklamak</span><span lang="en">Store your settings</span></td></tr>
+<tr><td><span lang="tr">İçerik betiği (43 Google alan adı)</span><span lang="en">Content script (43 Google domains)</span></td><td><span lang="tr">Yalnızca Google arama sayfaları</span><span lang="en">Google search pages only</span></td><td><span lang="tr">SERP katmanı</span><span lang="en">SERP overlay</span></td></tr>
+<tr><td><code>webRequest</code> + <code>http://*/*</code>, <code>https://*/*</code></td><td><strong><span lang="tr">İsteğe bağlı</span><span lang="en">Optional</span></strong></td><td><span lang="tr">Aşağıya bakın</span><span lang="en">See below</span></td></tr></table>
+<h3><span lang="tr">İsteğe bağlı izin</span><span lang="en">Optional permission</span></h3>
+<p><span lang="tr">Tam raporda "Yönlendirme zincirini göster", "Diğer sitelere erişime izin ver" veya "Başka sunuculardaki site haritalarını kontrol et" düğmesine bastığınızda Chrome bir kez izin ister. Tek izin üçünü de kapsar.</span><span lang="en">When you press "Show redirect chain", "Allow access to other sites" or "Check sitemaps on other servers" in the full report, Chrome asks once. One permission covers all three.</span></p>
+<ul>
+<li><span lang="tr"><code>webRequest</code> dinleyicisi yalnızca eklentinin kendi isteği sürerken açıktır; gezinmenizi görmez ve kaydetmez.</span><span lang="en">The <code>webRequest</code> listener is only active while the extension's own request runs; it does not see or record your browsing.</span></li>
+<li><span lang="tr">İzni vermezseniz eski davranış sürer ve ilgili satırda "çalışmadı" notu görünür.</span><span lang="en">If you decline, the old behaviour continues and the row shows a "not run" note.</span></li>
+<li><span lang="tr">İzni <code>chrome://extensions</code> sayfasından geri alabilirsiniz.</span><span lang="en">You can revoke it on <code>chrome://extensions</code>.</span></li>
+</ul>
+
+<h2 id="gizlilik"><span lang="tr">Gizlilik ve ağ istekleri</span><span lang="en">Privacy and network requests</span></h2>
+<ul>
+<li><span lang="tr">Sayfa tarayıcınızda analiz edilir. Hiçbir sayfa verisi, URL veya geçmiş Blakfy sunucularına ya da üçüncü taraflara gönderilmez.</span><span lang="en">Pages are analysed in your browser. No page data, URL or history is sent to Blakfy servers or third parties.</span></li>
+<li><span lang="tr">Tarama sırasında yalnızca incelenen siteye istek gider: sayfanın kendisi (ham HTML + yanıt başlıkları), <code>robots.txt</code>, aynı sitedeki site haritası.</span><span lang="en">During a scan, requests go only to the inspected site: the page itself (raw HTML + response headers), <code>robots.txt</code>, and the sitemap on the same site.</span></li>
+<li><span lang="tr">Bağlantı kontrolü, görsel boyutu ölçümü, yönlendirme zinciri ve başka sunuculardaki site haritaları yalnızca siz başlatınca çalışır.</span><span lang="en">Link checks, image-size measurement, the redirect chain and sitemaps on other servers run only when you start them.</span></li>
+<li><span lang="tr">Tüm istekler çerezsiz gönderilir.</span><span lang="en">All requests are sent without cookies.</span></li>
+</ul>
+
+<h2 id="sss"><span lang="tr">Sık sorulanlar</span><span lang="en">FAQ</span></h2>
+<details><summary><span lang="tr">Satırda neden "çalışmadı" yazıyor?</span><span lang="en">Why does a row say "not run"?</span></summary><p><span lang="tr">İlgili kontrol için gereken isteğe bağlı izin verilmemiş olabilir ya da siteye ulaşılamamış olabilir. "Çalışmadı" hiçbir zaman "geçti" sayılmaz; izni verip raporu yenileyin.</span><span lang="en">The optional permission for that check may not be granted, or the site could not be reached. "Not run" never counts as "pass"; grant the permission and refresh the report.</span></p></details>
+<details><summary><span lang="tr">İzni vermek zorunda mıyım?</span><span lang="en">Do I have to grant it?</span></summary><p><span lang="tr">Hayır. İsteğe bağlı izin yalnızca yönlendirme zinciri ve başka sitelerdeki bağlantı / görsel / site haritası kontrolleri için gerekir. Diğer her şey izinsiz çalışır.</span><span lang="en">No. The optional permission is only needed for the redirect chain and for link / image / sitemap checks on other sites. Everything else works without it.</span></p></details>
+<details><summary><span lang="tr">SERP katmanı hangi sitelerde çalışır?</span><span lang="en">Where does the SERP overlay run?</span></summary><p><span lang="tr">Yalnızca Google arama sonuç sayfalarında (<code>www.google.&lt;ülke&gt;/search*</code>, 43 alan adı). Başka hiçbir sitede içerik betiği çalışmaz.</span><span lang="en">Only on Google result pages (<code>www.google.&lt;country&gt;/search*</code>, 43 domains). No content script runs anywhere else.</span></p></details>
+<details><summary><span lang="tr">Chrome Web Mağazası'nda var mı?</span><span lang="en">Is it on the Chrome Web Store?</span></summary><p><span lang="tr">Henüz yok; geliştirme aşamasında. Paketlenmemiş olarak yüklenir.</span><span lang="en">Not yet; it is in development. Load it unpacked.</span></p></details>
+
+<h2 id="gelistirme"><span lang="tr">Geliştirme</span><span lang="en">Development</span></h2>
+<pre><code>npm run build      # dist/
+npm test           # 50 <span lang="tr">birim testi</span><span lang="en">unit tests</span>
+npm run test:e2e   # <span lang="tr">gerçek Chromium'da uçtan uca (önce build)</span><span lang="en">end-to-end in real Chromium (build first)</span>
+npm run check      # <span lang="tr">dist/manifest.json izinlerini ve URL'leri denetler</span><span lang="en">audits dist/manifest.json permissions and URLs</span></code></pre>
+<p><span lang="tr"><code>npm run check</code> kurulum izinlerini, isteğe bağlı izinlerin tam listesini, tek içerik betiğinin yalnızca Google arama yollarında olduğunu ve SERP betiğinde ağ isteği API'si olmadığını doğrular.</span><span lang="en"><code>npm run check</code> verifies install-time permissions, the full list of optional permissions, that the single content script runs only on Google search paths, and that the SERP script has no network-request API.</span></p>
+<pre><code>src/engine/     <span lang="tr">analiz motoru + eşik dosyaları</span><span lang="en">analysis engine + threshold files</span>
+src/lib/        <span lang="tr">saf modüller</span><span lang="en">pure modules</span>
+src/inspector/  <span lang="tr">sayfaya enjekte edilen betik ve işaretleme</span><span lang="en">injected script and highlighting</span>
+src/serp/       <span lang="tr">Google SERP katmanı</span><span lang="en">Google SERP overlay</span>
+src/ui/         popup, <span lang="tr">rapor</span><span lang="en">report</span>, <span lang="tr">ayarlar</span><span lang="en">settings</span>
+src/_locales/   tr, en</code></pre>
+</article></div>
+<footer><div class="wrap">
+<span>© 2026 <a href="https://blakfy.com">Blakfy Studio</a> · MIT</span>
+<span><a href="https://github.com/tariktunc/seorius-seo-inspector-chrome-extension"><span lang="tr">Kaynak kod</span><span lang="en">Source code</span></a> · <a href="https://github.com/tariktunc/seorius-seo-inspector-chrome-extension/issues"><span lang="tr">Sorun bildir</span><span lang="en">Report an issue</span></a></span>
+</div></footer>
+</body></html>

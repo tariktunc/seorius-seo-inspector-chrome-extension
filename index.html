@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="tr" data-lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Seorius — On-Page SEO Inspector</title>
+<meta name="description" content="Açık sekmedeki sayfanın sayfa içi SEO analizini tarayıcınızda yapan, açık kaynaklı Chrome eklentisi. Open-source, local-only on-page SEO inspector.">
+<meta property="og:title" content="Seorius — On-Page SEO Inspector">
+<meta property="og:description" content="Açık sekmedeki sayfanın sayfa içi SEO analizini tarayıcınızda yapan, açık kaynaklı Chrome eklentisi. Open-source, local-only on-page SEO inspector.">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/icon128.png">
+<link rel="stylesheet" href="style.css">
+<script>
+(function(){var d=document.documentElement,k='ext-lang',s=null;try{s=localStorage.getItem(k)}catch(e){}
+var l=s||((navigator.language||'tr').toLowerCase().indexOf('tr')===0?'tr':'en');d.setAttribute('data-lang',l);d.lang=l;
+document.addEventListener('DOMContentLoaded',function(){var b=document.getElementById('lang');if(!b)return;
+b.addEventListener('click',function(){var n=d.getAttribute('data-lang')==='tr'?'en':'tr';d.setAttribute('data-lang',n);d.lang=n;try{localStorage.setItem(k,n)}catch(e){}});});})();
+</script>
+</head>
+<body>
+<header class="nav"><div class="wrap">
+<a class="brand" href="index.html"><img src="assets/icon128.png" alt="">Seorius</a>
+<nav>
+<a href="index.html" class="on"><span lang="tr">Tanıtım</span><span lang="en">Overview</span></a>
+<a href="docs.html"><span lang="tr">Dökümanlar</span><span lang="en">Docs</span></a>
+<a class="hide-s" href="https://github.com/tariktunc/seorius-seo-inspector-chrome-extension">GitHub</a>
+<button class="lang" id="lang" type="button" aria-label="Language">TR / EN</button>
+</nav></div></header>
+
+<section class="hero"><div class="wrap">
+<img class="logo" src="assets/icon128.png" alt="Seorius">
+<h1>Seorius</h1>
+<p class="lead"><span lang="tr">Açık sekmedeki sayfanın sayfa içi SEO'sunu tarayıcınızın içinde inceleyen, açık kaynaklı Chrome eklentisi. Veriniz tarayıcınızdan çıkmaz.</span><span lang="en">An open-source Chrome extension that audits the on-page SEO of the current tab entirely inside your browser. Your data never leaves it.</span></p>
+<div class="btns">
+<a class="btn primary" style="background:#7fd8c8;color:#10243a" href="docs.html#kurulum"><span lang="tr">Kurulum</span><span lang="en">Install</span></a>
+<a class="btn ghost" href="https://github.com/tariktunc/seorius-seo-inspector-chrome-extension">GitHub</a>
+</div>
+<div class="badges"><span>Manifest V3</span><span>v1.0.0</span><span>MIT</span><span><span lang="tr">Yalnızca yerel</span><span lang="en">Local only</span></span><span><span lang="tr">Geliştirme aşamasında</span><span lang="en">In development</span></span></div>
+</div></section>
+
+<section class="block"><div class="wrap">
+<h2><span lang="tr">Neler yapar</span><span lang="en">What it does</span></h2>
+<p class="sub"><span lang="tr">Simgeye tıklayın, sayfanın SEO durumunu anında görün.</span><span lang="en">Click the icon and see the page's SEO state instantly.</span></p>
+<div class="grid">
+<div class="card"><span class="n">01</span><h3><span lang="tr">Açılır pencere</span><span lang="en">Popup</span></h3><p><span lang="tr">URL, HTTP durumu, hata / uyarı / not sayıları ve altı sekme: Özet, Başlıklar, Görseller, Bağlantılar, Sosyal, Araçlar.</span><span lang="en">URL, HTTP status, error / warning / note counts and six tabs: Overview, Headings, Images, Links, Social, Tools.</span></p></div>
+<div class="card"><span class="n">02</span><h3><span lang="tr">Google SERP katmanı</span><span lang="en">Google SERP overlay</span></h3><p><span lang="tr">Organik sonuçlara sıra numarası, reklamlara ayrı etiket, SERP özellik etiketleri (öne çıkan snippet, AI Overview, yerel paket...) ve CSV indirme.</span><span lang="en">Rank numbers on organic results, separate ad labels, SERP feature tags (featured snippet, AI Overview, local pack...) and CSV export.</span></p></div>
+<div class="card"><span class="n">03</span><h3><span lang="tr">Tam rapor</span><span lang="en">Full report</span></h3><p><span lang="tr">Teknik / İçerik / Mobil / Sosyal denetim, başlık ağacı, bağlantı kontrolü, anahtar kelime yoğunluğu, JSON-LD, robots.txt ve site haritası.</span><span lang="en">Technical / content / mobile / social audit, heading tree, link checker, keyword density, JSON-LD, robots.txt and sitemap.</span></p></div>
+<div class="card"><span class="n">04</span><h3><span lang="tr">Yönlendirme zinciri</span><span lang="en">Redirect chain</span></h3><p><span lang="tr">Sayfanın yönlendirmelerini adım adım, her URL ve durum koduyla gösterir (isteğe bağlı izinle).</span><span lang="en">Shows the page's redirects step by step with every URL and status code (with an optional permission).</span></p></div>
+<div class="card"><span class="n">05</span><h3><span lang="tr">2–5 URL karşılaştırma</span><span lang="en">Compare 2–5 URLs</span></h3><p><span lang="tr">Birkaç sayfayı yan yana karşılaştırın; sonuçları JSON, CSV veya PDF olarak dışa aktarın.</span><span lang="en">Compare several pages side by side and export results as JSON, CSV or PDF.</span></p></div>
+<div class="card"><span class="n">06</span><h3><span lang="tr">Sayfada işaretleme</span><span lang="en">On-page highlighting</span></h3><p><span lang="tr">Başlıkları, nofollow bağlantıları ve alt metni olmayan görselleri sayfanın üstünde işaretler. İstek üzerine eklenir, kapatınca kalkar.</span><span lang="en">Marks headings, nofollow links and images without alt text. Added on request, removed when you switch it off.</span></p></div>
+</div></div></section>
+
+<section class="block alt"><div class="wrap">
+<h2><span lang="tr">İlkeler</span><span lang="en">Principles</span></h2>
+<p class="sub"><span lang="tr">SEO verisi hassastır; bu yüzden eklenti yerel çalışacak şekilde tasarlandı.</span><span lang="en">SEO data is sensitive, so the extension is built to stay local.</span></p>
+<div class="grid">
+<div class="card"><span class="n">•</span><h3><span lang="tr">Yalnızca yerel</span><span lang="en">Local only</span></h3><p><span lang="tr">Sayfa tarayıcınızda analiz edilir. Hiçbir sayfa verisi, URL veya geçmiş Blakfy'ye ya da üçüncü taraflara gönderilmez.</span><span lang="en">Pages are analysed in your browser. No page data, URL or history is sent to Blakfy or any third party.</span></p></div>
+<div class="card"><span class="n">•</span><h3><span lang="tr">En az izin</span><span lang="en">Minimal permissions</span></h3><p><span lang="tr">Kurulumda yalnızca activeTab, scripting, storage. host_permissions ve <all_urls> yoktur.</span><span lang="en">Install-time permissions are only activeTab, scripting and storage. No host_permissions, no <all_urls>.</span></p></div>
+<div class="card"><span class="n">•</span><h3><span lang="tr">Tıklayınca çalışır</span><span lang="en">Runs on click</span></h3><p><span lang="tr">Sayfa analizi yalnızca simgeye tıkladığınızda, yalnızca o sekmede çalışır.</span><span lang="en">Page analysis runs only when you click the icon, and only in that tab.</span></p></div>
+<div class="card"><span class="n">•</span><h3><span lang="tr">Açık kaynak</span><span lang="en">Open source</span></h3><p><span lang="tr">MIT lisansı. Kodun tamamı repoda, ağ isteklerini doğrulayan bir denetim betiğiyle birlikte.</span><span lang="en">MIT licence. All code is in the repo, with a check script that audits the network surface.</span></p></div>
+</div></div></section>
+
+<section class="block"><div class="wrap">
+<h2><span lang="tr">Hızlı kurulum</span><span lang="en">Quick install</span></h2>
+<p class="sub"><span lang="tr">Henüz Chrome Web Mağazası'nda yok; paketlenmemiş olarak yüklenir.</span><span lang="en">Not on the Chrome Web Store yet; load it unpacked.</span></p>
+<pre><code>git clone https://github.com/tariktunc/seorius-seo-inspector-chrome-extension.git
+cd seorius-seo-inspector-chrome-extension
+npm install
+npm run build</code></pre>
+<p><span lang="tr">Sonra <code>chrome://extensions</code> sayfasında Geliştirici modunu açıp <strong>Paketlenmemiş öğe yükle</strong> ile <code>dist/</code> klasörünü seçin.</span><span lang="en">Then open <code>chrome://extensions</code>, enable Developer mode and use <strong>Load unpacked</strong> on the <code>dist/</code> folder.</span></p>
+<div class="btns" style="justify-content:flex-start"><a class="btn primary" href="docs.html"><span lang="tr">Dökümanları aç</span><span lang="en">Read the docs</span></a></div>
+</div></section>
+<footer><div class="wrap">
+<span>© 2026 <a href="https://blakfy.com">Blakfy Studio</a> · MIT</span>
+<span><a href="https://github.com/tariktunc/seorius-seo-inspector-chrome-extension"><span lang="tr">Kaynak kod</span><span lang="en">Source code</span></a> · <a href="https://github.com/tariktunc/seorius-seo-inspector-chrome-extension/issues"><span lang="tr">Sorun bildir</span><span lang="en">Report an issue</span></a></span>
+</div></footer>
+</body></html>
